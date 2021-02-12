@@ -1,5 +1,5 @@
 ### Documentación de bocetos y referncias
-<img src="src/img/readme/r01.jpg" width="1000" height="617"/>
+<img src="src/img/readme/r01.jpg" width="700" height="432"/>
 <img src="src/img/readme/r02-02.png" width="500" height="375"/>
 <img src="src/img/readme/r02-01.jpg" width="500" height="375"/>
 <img src="src/img/readme/r02-03.png" width="500" height="376"/>
