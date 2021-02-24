@@ -1,20 +1,56 @@
+// import { loginTemplate} from "./lib/views/login.js";
+// import {registerTemplate } from "./lib/views/register.js";
+import {onNavigate, routes} from './router.js'
+import { registration, signIn } from "./lib/firebase.js" 
+// import {render} from "./router.js"
 // Este es el punto de entrada de tu aplicacion
-import {registration, signIn} from "./lib/firebase.js" 
 
-const register = document.getElementById("register");
-register.addEventListener("click", () => { 
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    registration(email, password);
+const rootDiv = document.getElementById("root");
+// loginTemplate(rootDiv)
+// registerTemplate()
+
+
+// document.getElementById('root').innerHTML = loginTemplate;
+
+document.addEventListener('DOMContentLoaded', () => {
+    firebase.auth().onAuthStateChanged(function(user) {  
+      if (user) {
+        // const emailVerified = user.emailVerified;
+          console.log("usuario activo");
+          // home(user);
+          console.log(user);
+          // let emailVerified = user.emailVerified;
+          // emailVerified===true
+  
+          console.log(user.emailVerified);
+          let emailVerified = user.emailVerified;
+          onNavigate('/');
+          // User is signed in.
+          // let displayName = user.displayName;
+          // let email = user.email;
+          // console.log(displayName);
+          // console.log(email);
+        } else {
+          console.log("no existe usuario activo");
+          // emailVerified===false
+          onNavigate('/')
+          // No user is signed in.
+        }
+      });
 });
 
-const access = document.getElementById("access");
-access.addEventListener("click", () => { 
-    let emailSignIn = document.getElementById("emailSignIn").value;
-    let passwordSignIn = document.getElementById("passwordSignIn").value;
-    signIn (emailSignIn, passwordSignIn);
-    console.log("este usuario si pudo ingresar");
-});
+
+
+// const newUser = document.querySelector("#newAccount");
+// newUser.addEventListener("click", () => {
+// 	registerTemplate();
+// });
+
+
+// const registro = document.getElementById("NewAccount");
+// render(registro, registerTemplate);
+
+
 
 
 /*
@@ -28,18 +64,3 @@ tiene que ir en login.js
 //     content()
 // };
 
-
-// let user = user;
-//    const contenido = document.getElementById("");
-//    contenido.addEventListener("click", () =>{
-//     if (user.emailVerified){ 
-//         contenido.innerHTML = `
-//         <p>Bienvenida</p>
-//         <button>Cerrar sesión</button>
-//         `
-//         };
-//    })
-   
-// function home (user) {
-     
-//   };
